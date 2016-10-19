@@ -5,6 +5,7 @@ import * as path from 'path';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
+import * as io from 'socket.io';
 
 // Angular 2
 import { enableProdMode } from '@angular/core';
@@ -68,3 +69,5 @@ app.get('*', function(req, res) {
 let server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Listening on: http://localhost:${server.address().port}`);
 });
+
+const ioServer = io(server);
